@@ -94,10 +94,19 @@ body {
 
 .filters {
     display: flex;
-    gap: 10px;
+    gap: 80px;
     margin-bottom: 20px;
     align-items: center;
 }
+.filters select {
+    border: none;
+    background: #f8f9fa;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 19px;
+    min-width: 180px;
+}
+
 
 .filters button {
     padding: 5px 10px;
