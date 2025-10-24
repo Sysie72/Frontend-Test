@@ -1,6 +1,7 @@
+  // status de tache
 document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('status-chart').getContext('2d');
-    new Chart(ctx, {
+    const chartx = document.getElementById('status-chart').getContext('2d');
+    new Chart(chartx, {
         type: 'doughnut',
         data: {
             labels: ['Terminée', 'Planifiée', 'En cours', 'Reportée', 'A risque'],
@@ -22,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });   
     
-    const ctKPI = document.getElementById('kpi-chart').getContext('2d');
-    new Chart(ctKPI, {
+    const chart01 = document.getElementById('kpi-chart').getContext('2d');
+    new Chart(chart01, {
         type: 'line', 
         data: {
             labels: ['Janver', 'Fevr', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Sept', 'Octbre', 'Novbre', 'Decbre'], // Mois
@@ -75,6 +76,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 legend: {
                     display: true,
                     position: 'bottom'
+                }
+            }
+        }
+    });
+    // total planifié
+    const chaart = document.getElementById('ki-chart').getContext('2d');
+    new Chart(chaart, {
+        type: 'bar', 
+        data: {
+            labels: ['Janver', 'Fevr', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Sept', 'Octbre', 'Novbre', 'Decbre'], // Mois
+            datasets: [{
+                label: '',
+                data: [23, 23, 24, 18], 
+                backgroundColor: ['#36a2eb', '#4bc0c0', '#9094d1ff', '#68d3ceff'],              
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
                 }
             }
         }
