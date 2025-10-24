@@ -1,10 +1,10 @@
-/* body */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+/* body */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -72,7 +72,10 @@ body {
     color: #666;
     font-size: 16px;
 }
-
+.sidebar a:hover {
+    background-color: #e3f2fd; 
+    color: #1976d2 ;          
+}
 .sidebar a.active {
     color: #007bff;
     font-weight: bold;
@@ -118,6 +121,7 @@ body {
     border-radius: 4px;
     flex: 1;
     min-width: 0;
+    
 }
 
 .stat-card h3 {
@@ -197,5 +201,115 @@ body {
     .content {
         margin-left: 0;
         padding-top: 60px;
+    }
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse; 
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #0f548d;
+    color: #dae4dc;
+    font-weight: bold;
+}
+.table th {
+    background-color: #0f548d ;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.table td:nth-child(4) {
+    text-align: center;
+    padding: 4px 8px;
+}
+
+
+.table td:nth-child(4)::before {
+    content: attr(data-value); 
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background-color: #27aa45;
+    color: rgb(216, 216, 216);
+    font-weight: bold;
+    border-radius: 50%; 
+    text-align: center;
+    font-size: 14px;
+}
+
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+.table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.table td:nth-child(2),
+.table td:nth-child(3),
+.table td:nth-child(4),
+.table td:nth-child(5) {
+    text-align: center;
+}
+
+.charts .data-table {
+    width: 40%; 
+    min-width: 250px;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 0;
+    background-color: #fff;
+}
+
+.charts .data-table th {
+    background-color: #0f548d ;
+    color: white;
+    font-weight: bold;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.charts .data-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.charts .data-table tr:hover {
+    background-color: #f5f9ff;
+}
+
+/* Responsive*/
+@media (max-width: 768px) {
+    .table {
+        display: block;
+        overflow-x: auto; 
+    }
+    .table thead,
+    .table tbody,
+    .table th,
+    .table td,
+    .table tr {
+        display: block;
+    }
+    .table th,
+    .table td {
+        min-width: 120px; 
     }
 }
