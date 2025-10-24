@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Management</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -13,7 +15,7 @@
 
         <header class="header">
             <div class="left-section">
-                <div class="logo"> </div>
+                <div class="logo"></div>
                 <h2>Task Management</h2>
                 <span class="section-title">Reporting</span>
             </div>
@@ -21,14 +23,14 @@
 
         <aside class="sidebar">
             <nav>
+                   <h2>menu</h2>
                 <ul>
+                   
+                 
                     <li><a href="#" class="active"></a></li>
                     <li><a href="#">Assignation</a></li>
                     <li><a href="#">Reporting</a></li>
-                </ul>
-                <div class="right-section">
-                    <a href="#" style="color: #666; text-decoration: none;">Déconnexion</a>
-                </div>
+                </ul>            
             </nav>
         </aside>
 
@@ -52,12 +54,129 @@
                     <option value="">ce mois ci </option>
                     <option value="">cette année</option>
                     <option value=""> </option>
-                    <option value="">date precis</option>
+                    <option value="">date precise</option>
                 </select>
-                <button></button>
+                <button>Exportez</button>
             </div>
-    </div>
-    </main>
+            <div class="statistiques">
+                <div class="stat-card" style=" background-color: rgb(137, 163, 180);">
+                    <h3>Nombre total de tâches</h3>
+                    <p>Tâche assigné: 23</p>
+                    <p>Tâche traité: 23 <span style="color: rgb(108, 124, 179);"> 100%</span></p>
+                </div>
+                <div class="stat-card" style=" background-color: rgb(233, 172, 190);">
+                    <h3>Nombre total de tâches Applications</h3>
+                    <p>Tâche initié: 23</p>
+                    <p>Tâche non traité: 20 <span style="color: rgb(167, 38, 38);">98%</span></p>
+                </div>
+                <div class="stat-card" style=" background-color: rgb(137, 163, 180);">
+                    <h3>Heure total des tâches</h3>
+                    <p>Traitement a temps: 24 H</p>
+                    <p>Traitement en retard: 18 H <span style="color: rgb(180, 73, 180);">19%</span></p>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart-container">
+                    <h3>KPI Centre opérationnelle</h3>
+                    <canvas id="kpi-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Status des tâches</h3>
+                   <canvas id="status-chart"></canvas>
+                    <ul class="legend">
+                        <li><span style="background-color: #40ca3b;"></span> Terminée</li>
+                        <li><span style="background-color: #4b4a47;"></span> Planifiée</li>
+                        <li><span style="background-color: #4bc0c0;"></span> En cours</li>
+                        <li><span style="background-color: #e0a31f;"></span> Reportée</li>
+                        <li><span style="background-color: #dd331d;"></span> A risque</li>
+                    </ul>
+                </div>
+            </div>
+          
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Utilisateur</th>
+                        <th>Nb/Tâche</th>
+                        <th>traité à tps</th>
+                        <th>tps depassé</th>
+                        <th>tps retard moyen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Andrianina</td>
+                        <td>35</td>
+                        <td >20</td>
+                        <td data-value="20"></td>
+                        <td>1h</td>
+                    </tr>
+                    <tr>
+                        <td>john</td>
+                        <td>25</td>
+                        <td>23</td>
+                        <td data-value="2"></td>
+                        <td>20 min</td>
+                    </tr>
+                    <tr>
+                        <td>jeanne</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td data-value="0"></td>
+                        <td>0h</td>
+                    </tr>
+                    <tr>
+                        <td> Soa</td>
+                        <td>25</td>
+                        <td>23</td>
+                        <td data-value="0"></td>
+                        <td>0h</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="charts"> 
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Application</th>
+                            <th>Nb/Tâche</th>
+                            <th>Utilisateur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Myaccess</td>
+                            <td>25</td>
+                            <td>Andrianina</td>
+                        </tr>
+                        <tr>
+                            <td>OCL</td>
+                            <td>20</td>
+                            <td>John</td>
+                        </tr>
+                        <tr>
+                            <td>Reflouement</td>
+                            <td>35</td>
+                            <td>Jeanne</td>
+                        </tr>
+                        <tr>
+                            <td>Automation</td>
+                            <td>20</td>
+                            <td>Andrianine</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="chart-container">
+                     <h3>Total plannifié vs Actuel par projet</h3>  
+                    <div id="kpi-chart">en cours</div>
+                </div>
+                </div>
+                <div class="chart-container">
+                <h3>Total plannifié vs Actuel annuel</h3>    
+                <canvas id="ki-chart"></canvas> 
+            </div>
+        </main>
     </div>
 </body>
 
